@@ -2,14 +2,14 @@
 
 Input: a CSV of measurement runs with at least the columns platform,
 prompt_id, cpm_cited (Y / N / not_captured) and other_cited_domains
-(semicolon-separated). See data/baseline-runs-2026-09-28.csv.
+(semicolon-separated). See baseline-runs-2026-09-28.csv.
 
 Runs marked not_captured are excluded from the citation rate, because
 "no citation found" and "sources not recorded" are different results.
 
 Usage:
-    python scripts/summarize_runs.py data/baseline-runs-2026-09-28.csv
-    python scripts/summarize_runs.py data/baseline-runs-2026-09-28.csv --vendors asana.com,clickup.com
+    python summarize_runs.py baseline-runs-2026-09-28.csv
+    python summarize_runs.py baseline-runs-2026-09-28.csv --vendors asana.com,clickup.com
 """
 
 import argparse

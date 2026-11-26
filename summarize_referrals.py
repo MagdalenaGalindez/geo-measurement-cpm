@@ -2,13 +2,13 @@
 
 Input: a CSV with the columns date (YYYY-MM-DD), platform, landing_page,
 one row per session that arrived from an AI assistant. The file in
-data/ai-referrals.csv was built from the Clicky visitor log, filtered by
+ai-referrals.csv was built from the Clicky visitor log, filtered by
 referrer domain (chatgpt.com, claude.ai, gemini.google.com, perplexity.ai,
 perplexity, copilot.microsoft.com).
 
 Usage:
-    python scripts/summarize_referrals.py data/ai-referrals.csv
-    python scripts/summarize_referrals.py data/ai-referrals.csv --since 2026-01-01
+    python summarize_referrals.py ai-referrals.csv
+    python summarize_referrals.py ai-referrals.csv --since 2026-01-01
 """
 
 import argparse

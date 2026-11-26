@@ -28,7 +28,7 @@ Two things made it a useful test case:
 
 ### Observed: AI referral traffic
 
-From the Clicky visitor log, filtered by referrer domain. One row per session in [`data/ai-referrals.csv`](data/ai-referrals.csv).
+From the Clicky visitor log, filtered by referrer domain. One row per session in [`ai-referrals.csv`](ai-referrals.csv).
 
 | Month | ChatGPT | Claude | Copilot | Gemini | Perplexity | Total |
 |---|---:|---:|---:|---:|---:|---:|
@@ -54,7 +54,7 @@ The absolute numbers are small. They are reported in full because the pattern (c
 
 ### Observed: baseline prompt test, 28 Sep 2026
 
-Five prompts, four platforms, one run each. Full answers summarised in [`data/baseline-runs-2026-09-28.csv`](data/baseline-runs-2026-09-28.csv).
+Five prompts, four platforms, one run each. Full answers summarised in [`baseline-runs-2026-09-28.csv`](baseline-runs-2026-09-28.csv).
 
 - CPM was **not cited in any of the 15 runs** where sources were recorded (ChatGPT, Perplexity, Gemini). Claude's sources were not captured, so those five runs are excluded from the rate.
 - **Fact prompts go to the vendor.** For "How many users can I have on Asana's free plan?" (P02) and "What are the limitations…?" (P25), 9 of 12 citations were Asana's own pages.
@@ -70,32 +70,28 @@ Five prompts, four platforms, one run each. Full answers summarised in [`data/ba
 
 ## The experiment
 
-1. **Prompts from data, not brainstorming.** A first set of 24 prompts was written before looking at any data. Search Console then showed that almost none of them matched real demand. They were dropped and replaced by five prompts derived from actual queries for the page ([`prompts/prompt-set.csv`](prompts/prompt-set.csv)), each with a hypothesis written down before the baseline.
-2. **Controlled runs.** Fresh chat per prompt; personalization, custom instructions and memory off; logged out where possible. Conditions per platform are in [`docs/methodology.md`](docs/methodology.md).
-3. **One change, logged.** On 5 Oct 2026 the page was corrected (Asana 2 users, Trello 10 collaborators, Smartsheet no free plan, ClickUp 60 MB storage), Freedcamp and Wrike were added, and a short limit history (15 → 10 → 2) and FAQ were added for the prompts. Related pages that contradicted it were fixed the same day. Every change is in [`data/change-log.csv`](data/change-log.csv).
+1. **Prompts from data, not brainstorming.** A first set of 24 prompts was written before looking at any data. Search Console then showed that almost none of them matched real demand. They were dropped and replaced by five prompts derived from actual queries for the page ([`prompt-set.csv`](prompt-set.csv)), each with a hypothesis written down before the baseline.
+2. **Controlled runs.** Fresh chat per prompt; personalization, custom instructions and memory off; logged out where possible. Conditions per platform are in [`methodology.md`](methodology.md).
+3. **One change, logged.** On 5 Oct 2026 the page was corrected (Asana 2 users, Trello 10 collaborators, Smartsheet no free plan, ClickUp 60 MB storage), Freedcamp and Wrike were added, and a short limit history (15 → 10 → 2) and FAQ were added for the prompts. Related pages that contradicted it were fixed the same day. Every change is in [`change-log.csv`](change-log.csv).
 4. **Re-measure** under identical conditions and compare AI referrals before and after.
 
 ## Repository contents
 
 ```
-data/
-  ai-referrals.csv                 one row per AI-referred session (date, platform, landing page)
-  baseline-runs-2026-09-28.csv     20 prompt runs with cited domains and notes
-  change-log.csv                   every content change with date and affected prompts
-prompts/
-  prompt-set.csv                   the 5 measured prompts with pre-registered hypotheses
-docs/
-  methodology.md                   run conditions, definitions, limits
-scripts/
-  summarize_referrals.py           AI referrals by platform, page and month
-  summarize_runs.py                citation rate and vendor vs. third-party split
+ai-referrals.csv                 one row per AI-referred session (date, platform, landing page)
+baseline-runs-2026-09-28.csv     20 prompt runs with cited domains and notes
+change-log.csv                   every content change with date and affected prompts
+prompt-set.csv                   the 5 measured prompts with pre-registered hypotheses
+methodology.md                   run conditions, definitions, limits
+summarize_referrals.py           AI referrals by platform, page and month
+summarize_runs.py                citation rate and vendor vs. third-party split
 ```
 
 The scripts need only Python 3 and the standard library:
 
 ```bash
-python scripts/summarize_referrals.py data/ai-referrals.csv --since 2026-01-01
-python scripts/summarize_runs.py data/baseline-runs-2026-09-28.csv
+python summarize_referrals.py ai-referrals.csv --since 2026-01-01
+python summarize_runs.py baseline-runs-2026-09-28.csv
 ```
 
 They work on any CSV with the same columns, so the same approach can be reused for another site.

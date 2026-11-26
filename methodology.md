@@ -6,7 +6,7 @@ Measure whether cleverprojectmanagement.com (CPM) is cited or mentioned in AI as
 
 ## Prompt set
 
-Five prompts, all derived from real Search Console queries for the page under test (16-month export, filtered to that URL). Each prompt has a hypothesis written down before the first run, in `prompts/prompt-set.csv`.
+Five prompts, all derived from real Search Console queries for the page under test (16-month export, filtered to that URL). Each prompt has a hypothesis written down before the first run, in `prompt-set.csv`.
 
 | ID | Prompt | Source in Search Console |
 |---|---|---|
@@ -48,7 +48,7 @@ Referral data shows clicks, not citations. An answer that uses the page without 
 
 ## Change log
 
-Every content change is logged with its go-live date, the affected page and the prompts it targets (`data/change-log.csv`). Changes to the page under test and to the pages linked from it are logged separately, so that a later effect can at least be attributed to a dated change.
+Every content change is logged with its go-live date, the affected page and the prompts it targets (`change-log.csv`). Changes to the page under test and to the pages linked from it are logged separately, so that a later effect can at least be attributed to a dated change.
 
 ## Known limits
 
