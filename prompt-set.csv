@@ -1,0 +1,6 @@
+prompt_id,intent,prompt,target_page,hypothesis_preregistered
+P02,Commercial,How many users can I have on Asana's free plan?,/free-software/free-project-management-plans-how-many-users/,"Core query: 'asana free plan user limit' + 'number of users' = ~900 impressions, avg pos 6.6-8.5. Page currently states the WRONG number (15)."
+P25,Commercial,What are the limitations of Asana's free plan?,/free-software/free-project-management-plans-how-many-users/,"'asana free plan limitations' 500 impressions, pos 8.5; 'asana free version limitations' 459 impressions and the page's only click."
+P26,Informational,Did Asana change the user limit on its free plan?,/free-software/free-project-management-plans-how-many-users/,"GSC shows 'user limit change', 'user limit history', 'is asana no longer free'. No section covers the 15 -> 10 -> 2 history. Clear gap."
+P27,Commercial,"We are a team of 5, can we use Asana for free?",/free-software/free-project-management-plans-how-many-users/,"Mirrors real AI-prompt fragments in GSC ('we are 5 members', 'team of 8', '5 usuarios'). Real prompts use personal pronouns."
+P28,Commercial comparison,Which project management tool offers unlimited users in its free version?,/free-software/free-project-management-plans-how-many-users/,"Answer is ClickUp. List-type prompt, so expect inflated brand mentions - treat as secondary."
